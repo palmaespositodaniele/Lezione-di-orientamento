@@ -120,27 +120,23 @@ const CONFIG = {
   Mondo.inquadra([-150, 9, 120], [40, 60, -200]);
   Cielo.U.uOpac.value = 1; Cielo.velocita = 0.02; Cielo.lst = 4.4;
   Nave.accendiLuci(true);
-  // prima la pagina di benvenuto, poi la copertina
+  // una sola schermata iniziale: benvenuto, scuola, titolo, partenza e firma
   $('b-scuola').textContent = CONFIG.scuola;
-  UI.attiva($('benvenuto'), true);
+  UI.attiva($('copertina'), true);
   const titoloVr = { e: null };
   setTimeout(() => $('velo').classList.add('aperto'), 100);
   const respiro = (dt, t) => { if (!imm()) { Mondo.camera.position.x = -150 + Math.sin(t * 0.1) * 12; Mondo.camera.position.y = 9 + Math.sin(t * 0.35) * 1.2; } };
   Mondo.ogniFrame.add(respiro);
-  $('b-entra').addEventListener('click', () => {
-    Suono.avvia(); Suono.clic();
-    UI.attiva($('benvenuto'), false);
-    setTimeout(() => { UI.attiva($('copertina'), true); scritte(); }, 500);
-  });
+  scritte();
   function scritte() {
-    const p = $('presenta'), testo = 'Il prof. Daniele Palma Esposito presenta'; let i = 0;
+    const p = $('presenta'), testo = 'Benvenuti a scuola!'; let i = 0;
     const id = setInterval(() => { p.textContent = testo.slice(0, ++i); if (i >= testo.length) clearInterval(id); }, 45);
     const t = $('titolone'); t.innerHTML = '';
     [...'AL COMANDO'].forEach((ch, k) => { const s = document.createElement('span'); s.className = 'l'; s.textContent = ch === ' ' ? ' ' : ch; s.style.animationDelay = `${0.9 + k * 0.08}s`; t.appendChild(s); });
   }
 
   function togliCopertina() {
-    UI.attiva($('benvenuto'), false); UI.attiva($('copertina'), false); UI.copertina3d(null);
+    UI.attiva($('copertina'), false); UI.copertina3d(null);
     if (titoloVr.e) { titoloVr.e.togli(); titoloVr.e = null; }
     Mondo.ogniFrame.delete(respiro);
   }
@@ -153,14 +149,11 @@ const CONFIG = {
 
   // copertina nel visore (o nella VR simulata): sul pontile, di notte, col titolo nel cielo
   function copertinaImmersiva() {
-    UI.attiva($('benvenuto'), false); UI.attiva($('copertina'), false); UI.mostra($('barra'), false);
+    UI.attiva($('copertina'), false); UI.mostra($('barra'), false);
     Mondo.ogniFrame.delete(respiro);
     pontile.visible = true; VR.posto(pontile, [0, 0.6, 3], 0, pontile.userData.area);
-    const copertina = () => {
-      titoloVr.e = UI.etichetta('AL COMANDO<br>un viaggio in dieci tappe', inNave(-6, 40, -20), { grande: true, colore: '#E3C878', ang: 0.06 });
-      UI.copertina3d({ sotto: 'Dieci tappe per prendere il mare', salpa });
-    };
-    UI.copertina3d({ benvenuto: true, scuola: CONFIG.scuola, entra() { Suono.clic(); copertina(); } });
+    titoloVr.e = UI.etichetta('AL COMANDO<br>un viaggio in dieci tappe', inNave(-6, 40, -20), { grande: true, colore: '#E3C878', ang: 0.06 });
+    UI.copertina3d({ scuola: CONFIG.scuola, sotto: 'Dieci tappe per prendere il mare', salpa });
   }
   // pulsanti per la VR: sempre visibili; se il browser non la permette, si spiega perché
   let vrSi = false, arSi = false;

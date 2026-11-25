@@ -72,23 +72,18 @@ button.grande[hidden] { display: none; }
   filter: drop-shadow(0 10px 30px rgba(0,0,0,.6)); }
 #mirino canvas { width: 100%; height: 100%; border-radius: 50%; }
 
-/* pagina di benvenuto */
-#benvenuto { background: radial-gradient(ellipse at center, rgba(11,37,69,.35), rgba(5,12,24,.75)); }
-.saluto { font-family: 'Bitter', Georgia, serif; font-weight: 700; margin: 0; font-size: clamp(44px, 8vw, 130px); color: #fff; line-height: 1;
-  text-shadow: 0 0 40px rgba(201,162,39,.35), 0 6px 30px rgba(0,0,0,.45);
-  opacity: 0; transform: translateY(24px); transition: opacity 1.1s .3s, transform 1.1s .3s var(--curva); }
-.scuola { font-size: clamp(18px, 2.3vw, 30px); color: var(--oro-2); margin: 3vh 0 0; max-width: 34em;
-  opacity: 0; transition: opacity 1.1s 1s; }
-.cura { font-family: 'Mano', cursive; font-size: clamp(18px, 2.2vw, 28px); color: var(--nebbia-2); margin: 4vh 0 5vh; line-height: 1.5;
-  opacity: 0; transition: opacity 1.1s 1.7s; }
+/* copertina: benvenuto, scuola e firma */
+#copertina .presenta { font-size: clamp(22px, 3vw, 40px); }
+.scuola { font-size: clamp(15px, 1.8vw, 24px); color: var(--nebbia-2); margin: 0 0 3vh; max-width: 40em;
+  opacity: 0; transition: opacity 1.1s .6s; }
+.cura { font-family: 'Mano', cursive; font-size: clamp(16px, 1.8vw, 24px); color: var(--oro-2); margin: 3.5vh 0 0;
+  opacity: 0; transition: opacity 1.1s 2.6s; }
 .cura strong { font-family: 'Atkinson', sans-serif; color: #fff; }
-#benvenuto button.grande { opacity: 0; transition: opacity 1s 2.3s; }
-#benvenuto.attiva .saluto { opacity: 1; transform: none; }
-#benvenuto.attiva .scuola, #benvenuto.attiva .cura, #benvenuto.attiva button.grande { opacity: 1; }
+#copertina.attiva .scuola, #copertina.attiva .cura { opacity: 1; }
 
 /* nel visore (o nella VR simulata) l'interfaccia HTML sparisce: tutto è sul pannello di bordo */
 body.immersivo #barra, body.immersivo #missione, body.immersivo #pannello, body.immersivo #scheda,
-body.immersivo #cartello, body.immersivo #copertina, body.immersivo #benvenuto,body.immersivo #avviso, body.immersivo .etichetta3d { display: none !important; }
+body.immersivo #cartello, body.immersivo #copertina,body.immersivo #avviso, body.immersivo .etichetta3d { display: none !important; }
 
 /* ---------- barra delle tappe ---------- */
 #barra { position: fixed; top: 0; left: 0; right: 0; z-index: 20; display: flex; align-items: center; gap: 2vw;

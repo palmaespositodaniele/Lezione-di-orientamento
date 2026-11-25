@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Al comando — un viaggio in dieci tappe</title>
 <meta name="author" content="prof. Daniele Palma Esposito">
-<link rel="stylesheet" href="assets/stile.css?v=20261125c">
+<link rel="stylesheet" href="assets/stile.css?v=20261125d">
 </head>
 <body>
 <canvas id="scena" aria-label="Scena 3D del viaggio"></canvas>
@@ -26,20 +26,10 @@
   </div>
 </header>
 
-<!-- benvenuto -->
-<section id="benvenuto" class="schermata">
-  <h1 class="saluto">Benvenuti a scuola!</h1>
-  <p class="scuola" id="b-scuola"></p>
-  <p class="cura">Questo lavoro è stato realizzato a cura del<br><strong>prof. Daniele Palma Esposito</strong></p>
-  <div class="partenze">
-    <button id="b-entra" class="grande">Entra <span>›</span></button>
-    <button class="grande secondario" data-vr="vr">Entra in VR <span>◉</span></button>
-  </div>
-</section>
-
-<!-- copertina -->
+<!-- copertina: benvenuto, titolo e partenza in una sola schermata -->
 <section id="copertina" class="schermata">
-  <p class="presenta" id="presenta">Il prof. Daniele Palma Esposito presenta</p>
+  <p class="presenta" id="presenta">Benvenuti a scuola!</p>
+  <p class="scuola" id="b-scuola"></p>
   <h1 class="titolone" id="titolone">AL COMANDO</h1>
   <p class="sottotitolo" id="sottotitolo">Dieci tappe per prendere il mare</p>
   <div class="partenze">
@@ -47,6 +37,7 @@
     <button id="b-vr" class="grande secondario" data-vr="vr">Entra in VR <span>◉</span></button>
     <button id="b-ar" class="grande secondario solo-camere" data-vr="camere" hidden>VR con le camere <span>◐</span></button>
   </div>
+  <p class="cura">Lavoro realizzato a cura del <strong>prof. Daniele Palma Esposito</strong></p>
   <p class="consiglio">Meglio con l'audio acceso e a schermo intero · <a href="#vr" onclick="setTimeout(() => location.reload(), 0)">prova la VR sullo schermo</a></p>
 </section>
 
@@ -88,16 +79,16 @@
 
 <div id="avviso"></div>
 
-<script src="assets/vendor/three.min.js?v=20261125c"></script>
-<script src="assets/js/audio.js?v=20261125c"></script>
-<script src="assets/js/mondo.js?v=20261125c"></script>
-<script src="assets/js/nave.js?v=20261125c"></script>
-<script src="assets/js/cielo.js?v=20261125c"></script>
-<script src="assets/js/vr.js?v=20261125c"></script>
-<script src="assets/js/ui.js?v=20261125c"></script>
-<script src="assets/js/scenari.js?v=20261125c"></script>
-<script src="assets/js/sestante3d.js?v=20261125c"></script>
-<script src="assets/js/bussola3d.js?v=20261125c"></script>
-<script src="assets/js/esperienza.js?v=20261125c"></script>
+<script src="assets/vendor/three.min.js?v=20261125d"></script>
+<script src="assets/js/audio.js?v=20261125d"></script>
+<script src="assets/js/mondo.js?v=20261125d"></script>
+<script src="assets/js/nave.js?v=20261125d"></script>
+<script src="assets/js/cielo.js?v=20261125d"></script>
+<script src="assets/js/vr.js?v=20261125d"></script>
+<script src="assets/js/ui.js?v=20261125d"></script>
+<script src="assets/js/scenari.js?v=20261125d"></script>
+<script src="assets/js/sestante3d.js?v=20261125d"></script>
+<script src="assets/js/bussola3d.js?v=20261125d"></script>
+<script src="assets/js/esperienza.js?v=20261125d"></script>
 </body>
 </html>

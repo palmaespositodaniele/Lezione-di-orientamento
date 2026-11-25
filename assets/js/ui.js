@@ -88,29 +88,20 @@ const UI = (() => {
     const sc = stato.scheda;
     // fondo
     tondo(4, 4, W - 8, H - 8, 36, sc ? 'rgba(246,243,232,0.97)' : 'rgba(11,37,69,0.88)', sc ? null : 'rgba(227,200,120,0.5)');
-    if (stato.copertina && stato.copertina.benvenuto) {
+    if (stato.copertina) { // una sola schermata: benvenuto, scuola, titolo, partenza, firma
       const c = stato.copertina;
       cx.textAlign = 'center';
-      cx.fillStyle = '#ffffff'; cx.font = '700 104px Bitter, serif'; cx.fillText('Benvenuti a scuola!', W / 2, 90);
-      cx.fillStyle = '#E3C878'; cx.font = '34px Atkinson, sans-serif';
-      // nome della scuola, su due righe se serve
-      const parole = c.scuola.split(' '); let riga = '', yy = 250; const righe = [];
-      for (const p of parole) { const prova = riga ? riga + ' ' + p : p; if (cx.measureText(prova).width > W - 140 && riga) { righe.push(riga); riga = p; } else riga = prova; }
-      righe.push(riga); for (const r of righe) { cx.fillText(r, W / 2, yy); yy += 46; }
-      cx.fillStyle = '#D8E0EC'; cx.font = '36px Mano, cursive'; cx.fillText('Questo lavoro è stato realizzato a cura del', W / 2, yy + 40);
-      cx.fillStyle = '#ffffff'; cx.font = '700 44px Atkinson, sans-serif'; cx.fillText('prof. Daniele Palma Esposito', W / 2, yy + 92);
+      cx.fillStyle = '#E3C878'; cx.font = '52px Mano, cursive'; cx.fillText('Benvenuti a scuola!', W / 2, 100);
+      cx.fillStyle = '#D8E0EC'; cx.font = '28px Atkinson, sans-serif'; cx.fillText(c.scuola || '', W / 2, 172, W - 80);
+      cx.fillStyle = '#ffffff'; cx.font = '700 120px Bitter, serif'; cx.fillText('AL COMANDO', W / 2, 225);
+      cx.fillStyle = '#D8E0EC'; cx.font = '36px Atkinson, sans-serif'; cx.fillText(c.sotto, W / 2, 370);
       cx.textAlign = 'left';
-      bottone('entra', W / 2 - 220, 560, 440, 120, 'Entra ›', true);
-      tastiniAlti(false);
-    } else if (stato.copertina) {
-      const c = stato.copertina;
-      cx.textAlign = 'center'; cx.fillStyle = '#E3C878'; cx.font = '34px Mano, cursive'; cx.fillText('Il prof. Daniele Palma Esposito presenta', W / 2, 90);
-      cx.fillStyle = '#ffffff'; cx.font = '700 120px Bitter, serif'; cx.fillText('AL COMANDO', W / 2, 170);
-      cx.fillStyle = '#D8E0EC'; cx.font = '36px Atkinson, sans-serif'; cx.fillText(c.sotto, W / 2, 330);
-      cx.textAlign = 'left';
-      bottone('salpa', W / 2 - 220, 470, 440, 130, 'Salpa ⚓', true);
-      cx.fillStyle = 'rgba(216,224,236,0.8)'; cx.font = '28px Atkinson, sans-serif'; cx.textAlign = 'center';
-      cx.fillText('Levetta sinistra: cammina · destra: gira · grilletto: premi', W / 2, 680);
+      bottone('salpa', W / 2 - 220, 450, 440, 130, 'Salpa ⚓', true);
+      cx.textAlign = 'center';
+      cx.fillStyle = '#E3C878'; cx.font = '34px Mano, cursive'; cx.fillText('Lavoro realizzato a cura del', W / 2, 620);
+      cx.fillStyle = '#ffffff'; cx.font = '700 38px Atkinson, sans-serif'; cx.fillText('prof. Daniele Palma Esposito', W / 2, 664);
+      cx.fillStyle = 'rgba(216,224,236,0.8)'; cx.font = '26px Atkinson, sans-serif';
+      cx.fillText('Levetta sinistra: cammina · destra: gira · grilletto: premi', W / 2, 760);
       cx.textAlign = 'left';
       tastiniAlti(false);
     } else if (sc) {
@@ -214,7 +205,6 @@ const UI = (() => {
   function emetti(id, ev) {
     if (id === 'avanti' && ev === 'clic') { chiudiScheda && chiudiScheda(); return; }
     if (id === 'salpa' && ev === 'clic') { stato.copertina?.salpa(); return; }
-    if (id === 'entra' && ev === 'clic') { stato.copertina?.entra(); return; }
     if (id === 'salta' && ev === 'clic') { UI.onSalta?.(); return; }
     if (id === 'esci' && ev === 'clic') { VR.esci(); return; }
     if (id === 'camere' && ev === 'clic') { Mondo.camere(!Mondo.conCamere); ridisegna(); return; }
