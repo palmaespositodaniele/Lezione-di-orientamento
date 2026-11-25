@@ -1,0 +1,12 @@
+«Al comando» — esperienza ideata e realizzata dal prof. Daniele Palma Esposito.
+
+Modelli 3D (assets/modelli):
+- sestante.glb: sestante, modello del prof. Daniele Palma Esposito.
+- sospensione_cardanica.glb: bussola nella sospensione cardanica, modello del prof. Daniele Palma Esposito.
+
+Librerie:
+- three.js r158 (assets/vendor/three.min.js), licenza MIT, © three.js authors.
+
+Contenuti delle schede: lezioni del docente (slide citate in ogni scheda) e libro
+«Astronomia nautica». Nave, scafo, carico, elica, mare e cielo sono disegni schematici:
+le misure non vanno prese come dati reali.

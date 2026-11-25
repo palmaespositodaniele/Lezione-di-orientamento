@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Al comando — un viaggio in dieci tappe</title>
+<meta name="author" content="prof. Daniele Palma Esposito">
+<link rel="stylesheet" href="assets/stile.css?v=20261125c">
+</head>
+<body>
+<canvas id="scena" aria-label="Scena 3D del viaggio"></canvas>
+
+<!-- velo per le transizioni -->
+<div id="velo"></div>
+<div id="lampo"></div>
+
+<!-- barra in alto: tappe del viaggio -->
+<header id="barra" class="nascosto">
+  <div id="marchio">AL COMANDO</div>
+  <ol id="tappe"></ol>
+  <div id="comandi">
+    <button class="piccolo" data-vr="vr" title="Continua questa tappa nel visore">Entra in VR</button>
+    <button id="b-audio" class="tondo" title="Audio acceso o spento" aria-label="Audio">♪</button>
+    <button id="b-schermo" class="tondo" title="Schermo intero" aria-label="Schermo intero">⛶</button>
+    <button id="b-salta" class="piccolo" title="Passa alla tappa successiva">Salta ›</button>
+  </div>
+</header>
+
+<!-- benvenuto -->
+<section id="benvenuto" class="schermata">
+  <h1 class="saluto">Benvenuti a scuola!</h1>
+  <p class="scuola" id="b-scuola"></p>
+  <p class="cura">Questo lavoro è stato realizzato a cura del<br><strong>prof. Daniele Palma Esposito</strong></p>
+  <div class="partenze">
+    <button id="b-entra" class="grande">Entra <span>›</span></button>
+    <button class="grande secondario" data-vr="vr">Entra in VR <span>◉</span></button>
+  </div>
+</section>
+
+<!-- copertina -->
+<section id="copertina" class="schermata">
+  <p class="presenta" id="presenta">Il prof. Daniele Palma Esposito presenta</p>
+  <h1 class="titolone" id="titolone">AL COMANDO</h1>
+  <p class="sottotitolo" id="sottotitolo">Dieci tappe per prendere il mare</p>
+  <div class="partenze">
+    <button id="b-salpa" class="grande">Salpa <span>⚓</span></button>
+    <button id="b-vr" class="grande secondario" data-vr="vr">Entra in VR <span>◉</span></button>
+    <button id="b-ar" class="grande secondario solo-camere" data-vr="camere" hidden>VR con le camere <span>◐</span></button>
+  </div>
+  <p class="consiglio">Meglio con l'audio acceso e a schermo intero · <a href="#vr" onclick="setTimeout(() => location.reload(), 0)">prova la VR sullo schermo</a></p>
+</section>
+
+<!-- cartello di inizio tappa -->
+<section id="cartello" class="schermata">
+  <div class="numero" id="c-numero">01</div>
+  <h2 id="c-titolo">Galleggiare</h2>
+  <p id="c-motto"></p>
+</section>
+
+<!-- missione corrente -->
+<aside id="missione" class="nascosto">
+  <div class="etichetta">Missione</div>
+  <p id="m-testo"></p>
+  <div id="m-stato"></div>
+</aside>
+
+<!-- pannello comandi della tappa (riempito da esperienza.js) -->
+<div id="pannello" class="nascosto"></div>
+
+<!-- scheda «lo sapevi» che chiude ogni tappa -->
+<section id="scheda" class="nascosto" role="dialog" aria-live="polite">
+  <div class="etichetta" id="s-etichetta">Hai scoperto</div>
+  <h3 id="s-titolo"></h3>
+  <div id="s-testo"></div>
+  <p class="fonte" id="s-fonte"></p>
+  <button id="b-avanti" class="grande">Avanti ›</button>
+</section>
+
+<!-- finale -->
+<section id="finale" class="schermata">
+  <p class="presenta">Fine del viaggio</p>
+  <h1 class="titolone" id="f-titolo">Benvenuto a bordo</h1>
+  <div id="medaglie"></div>
+  <p class="indirizzo" id="f-indirizzo"></p>
+  <p class="firma">Esperienza ideata e realizzata dal <strong>prof. Daniele Palma Esposito</strong></p>
+  <button id="b-ancora" class="grande">Rifai il viaggio ↻</button>
+</section>
+
+<div id="avviso"></div>
+
+<script src="assets/vendor/three.min.js?v=20261125c"></script>
+<script src="assets/js/audio.js?v=20261125c"></script>
+<script src="assets/js/mondo.js?v=20261125c"></script>
+<script src="assets/js/nave.js?v=20261125c"></script>
+<script src="assets/js/cielo.js?v=20261125c"></script>
+<script src="assets/js/vr.js?v=20261125c"></script>
+<script src="assets/js/ui.js?v=20261125c"></script>
+<script src="assets/js/scenari.js?v=20261125c"></script>
+<script src="assets/js/sestante3d.js?v=20261125c"></script>
+<script src="assets/js/bussola3d.js?v=20261125c"></script>
+<script src="assets/js/esperienza.js?v=20261125c"></script>
+</body>
+</html>
